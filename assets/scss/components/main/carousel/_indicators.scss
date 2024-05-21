@@ -1,0 +1,30 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+}
+
+.indicator {
+  @extend %flex-center;
+  justify-content: center;
+  background-color: rgba($color-dark, 0.2);
+  width: 40px;
+  height: 10px;
+
+  cursor: pointer;
+  user-select: none;
+
+  @include md {
+    border-right: 1px solid $color-light;
+  }
+
+  &.active {
+    background-color: $color-primary;
+  }
+}

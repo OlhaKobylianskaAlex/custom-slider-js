@@ -1,0 +1,130 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.header-navbar {
+  user-select: none;
+}
+
+.burger-menu {
+  @include md-min {
+    display: none;
+  }
+  @include md {
+    display: block;
+  }
+
+  &__button {
+    display: block;
+    position: fixed;
+    top: 40px;
+    right: 10%;
+    z-index: 1000;
+    width: $gap-x4;
+    height: $gap-x4;
+    border-radius: 50%;
+    background-color: rgba($color-dark, 0.1);
+
+    &:hover &-lines {
+      filter: brightness(0.7);
+      @include transition;
+    }
+
+    &-lines,
+    &-lines::after,
+    &-lines::before {
+      position: absolute;
+      width: $gap-lg;
+      height: 3px;
+      background-color: $color-light;
+      z-index: 2000;
+    }
+
+    &-lines {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-lines::before {
+      content: "";
+      top: -8px;
+    }
+    &-lines::after {
+      content: "";
+      top: 8px;
+    }
+  }
+
+  &__nav {
+    padding-top: 100px;
+    position: fixed;
+    top: 0;
+    z-index: 950;
+
+    display: flex;
+    flex-flow: column;
+
+    background-color: rgba($color-light, 0.75);
+    box-shadow: -2px 2px 10px $color-gray;
+    right: -100%;
+    opacity: 0;
+    width: 300px;
+
+    &-link {
+      padding: $gap-x2;
+      font-family: $font-main;
+      font-size: $font-size;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      // color:white;
+      color: $color-dark;
+      z-index: 10000;
+
+      &--text {
+        font-weight: 600;
+        padding: $gap-lg;
+        text-align: center;
+      }
+
+      &:hover {
+        filter: brightness(0.7);
+      }
+    }
+
+    &-overlay {
+      display: none;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 900;
+    }
+  }
+  &__active &__button-lines {
+    background-color: transparent;
+  }
+
+  &__active {
+    user-select: none;
+
+    .burger-menu__button-lines::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .burger-menu__button-lines::after {
+      top: 0;
+      transform: rotate(-45deg);
+      @include transition;
+    }
+
+    .burger-menu__nav {
+      right: 0;
+      opacity: 1;
+    }
+
+    .burger-menu__nav-overlay {
+      display: block;
+    }
+  }
+}

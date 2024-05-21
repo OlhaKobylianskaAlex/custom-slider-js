@@ -1,0 +1,28 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.container-footer {
+  width: 100%;
+  margin-top: 100px;
+
+  background-color: rgba($color-primary, 0.05);
+  text-align: center;
+
+  &__block {
+    height: 150px;
+    width: 100%;
+    padding: $gap-x2 $gap-x4;
+    font-family: $font-main;
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    line-height: 1.8em;
+
+    @include md {
+      height: 80px;
+      padding: $gap-lg $gap-x2;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      line-height: 1.2em;
+    }
+  }
+}

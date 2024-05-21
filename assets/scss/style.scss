@@ -1,0 +1,18 @@
+@use "../../libs/normalize.css/normalize";
+
+@use "common/typography";
+
+@use "components/header/header";
+@use "components/header/header-menu";
+@use "components/header/header-logo";
+@use "components/header/header-burger.scss";
+
+@use "components/main/container/container-main.scss";
+
+@use "components/main/carousel/carousel.scss";
+@use "components/main/carousel/slides.scss";
+@use "components/main/carousel/indicators.scss";
+@use "components/main/carousel/controls.scss";
+
+@use "components/footer/footer-container";
+@use "components/footer/wrapper";

@@ -1,0 +1,70 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.wrapper {
+  position: fixed;
+  width: inherit;
+  max-width: 100%;
+  padding: 0;
+  bottom: 0;
+  z-index: 500;
+}
+
+.block {
+  background-color: rgba($color-primary, 0.5);
+  @extend %flex-center;
+  position: relative;
+  width: 100%;
+  height: $gap-x2;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(
+      to right,
+      rgba($color-primary, 0.5) 0%,
+      rgba($color-primary, 0.2) 70%,
+      rgba($color-primary, 0) 100%
+    );
+  }
+  &::before {
+    left: 0;
+    z-index: 1;
+  }
+  &::after {
+    right: 0;
+    z-index: 1;
+    transform: rotate(180deg);
+  }
+
+  &-slog {
+    height: inherit;
+    @extend %flex-center;
+    white-space: nowrap;
+    padding-top: 8px;
+    animation: slideshow 20s linear infinite;
+
+    &__win {
+      color: $color-other;
+      height: $gap-x2;
+      padding-left: $gap-lg * 10;
+      margin: auto;
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,16 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+main {
+  height: 95vh;
+}
+
+.container-main {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  height: 880px;
+  @include md {
+    height: 600px;
+  }
+}

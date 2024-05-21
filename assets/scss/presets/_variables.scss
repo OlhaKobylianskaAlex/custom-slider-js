@@ -1,0 +1,21 @@
+@use "sass:math";
+
+$font-header: "Open Sans", sans-serif;
+$font-main: "Oswald", serif;
+$font-size: 16px;
+
+$ul: 1340px;
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 456px;
+
+$gap: 16px;
+$gap-q: math.div($gap, 4);
+$gap-lg: $gap * 1.5;
+$gap-x2: $gap * 2;
+$gap-x3: $gap * 3;
+$gap-x4: $gap * 4;
+$gap-x5: $gap * 5;
+$gap-x6: $gap * 6;

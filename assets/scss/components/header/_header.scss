@@ -1,0 +1,61 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.container {
+  position: relative;
+  max-width: 1280px;
+  padding: 20px 2rem 20px 2rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  &--header {
+    width: 100%;
+    height: $gap * 12;
+    display: flex;
+    justify-content: space-around;
+
+    padding: $gap;
+    margin-top: $gap-q;
+    margin-bottom: $gap-q;
+
+    @include ul-xl {
+      max-width: 1000px;
+    }
+    @include xl-lg {
+      max-width: 800px;
+    }
+
+    @include lg-md {
+      max-width: 600px;
+    }
+    @include md {
+      max-width: 500px;
+      margin: 0;
+      margin-left: 10%;
+      padding-top: 40px;
+    }
+
+    @include xs {
+      max-width: 300px;
+      margin: 0;
+    }
+
+    @include lg {
+      height: $gap * 8;
+    }
+
+    &::after {
+      @include underline-position(100%, 0, rgba($color-dark, 0.3));
+      right: 0;
+      z-index: 100;
+
+      @include lg-md {
+        top: $gap-x6;
+      }
+      @include md {
+        display: none;
+      }
+    }
+  }
+}

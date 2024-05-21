@@ -1,0 +1,95 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.header__menu {
+  width: 100%;
+  height: $gap-x6;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: $gap-x4;
+  @include unlist;
+
+  @include ul-xl {
+    gap: $gap-x2;
+  }
+
+  @include xl-lg {
+    gap: $gap-lg;
+  }
+
+  @include lg {
+    gap: $gap-x2;
+    height: 84px;
+  }
+
+  @include md {
+    display: none;
+  }
+
+  &-text {
+    font-size: $font-size * 1.5;
+    font-family: $font-header;
+    font-weight: 400;
+    padding-bottom: 69px;
+    color: rgba($color-dark, 0.9);
+
+    margin-top: $gap-x4;
+    text-transform: uppercase;
+
+    @include xl-lg {
+      font-size: $font-size * 1.1;
+      margin-top: $gap-x4;
+      font-weight: 500;
+    }
+
+    @include lg {
+      font-size: 0.8rem;
+      margin-top: $gap-x2;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: rgba($color-primary, 0.9);
+      font-weight: 600;
+      border-bottom: 4px solid $color-primary;
+      @include margin-rl(-4px, -2px);
+
+      @include xl {
+        @include margin-rl(-1px, -1px);
+      }
+
+      @include lg {
+        padding-bottom: 0px;
+      }
+    }
+
+    &--two:hover {
+      @include margin-rl(-2px, -2.2px);
+
+      @include xl-lg {
+        @include margin-rl(-1px, -1px);
+      }
+      @include lg {
+        @include margin-rl(-0.6px, -0.6px);
+      }
+    }
+
+    &--three:hover {
+      @include margin-rl(-3px, -5px);
+      @include xl-lg {
+        @include margin-rl(-2px, -1px);
+      }
+    }
+
+    &--four:hover {
+      @include margin-rl(-2.25px, -1.25px);
+      @include xl-lg {
+        @include margin-rl(-1px, -1px);
+      }
+      @include lg {
+        @include margin-rl(-0.5px, -0.5px);
+      }
+    }
+  }
+}
